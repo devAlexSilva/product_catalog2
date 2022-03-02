@@ -1,13 +1,14 @@
 import Prismic from '@prismicio/client'
 
 const client = Prismic.client(process.env.NEXT_PUBLIC_API_URL);
-const results = async()=> await client.getTags();
-console.log(results)
+//const results = async()=> await client.getTags();
 
-/*
-async function resultsTag(){
-    const results = await client.getTags();
-    return results
+
+
+export const PrismicQuery = {
+
+    getTags: async () => {
+        const results = await client.getTags();
+        return results
+    }
 }
-console.log(resultsTag());
-*/

@@ -1,10 +1,11 @@
 import HeadMeta from "./headMeta"
 
-export default function Layout({children}){
-    return(
+export default function Layout({ children }) {
+    return (
         <>
-        <HeadMeta />
-        <main>{children}</main>
+            <HeadMeta />
+            
+            <main>{children}</main>
         </>
     )
 }
