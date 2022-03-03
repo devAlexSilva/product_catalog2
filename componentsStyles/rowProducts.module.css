@@ -7,15 +7,38 @@
 .category {
     margin-bottom: 30px;
   }
+
+  .category .row_left,
+  .category .row_right {
+      position: absolute;
+      width: 40px;
+      height: 250px;
+      background-color: rgba(0, 0, 0, 0.4);
+      color: red;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9;
+      opacity: 0;
+      cursor: pointer;
+  }
+
   
-  .category h2 {
-    margin: 0px;
-    margin-left: 30px;
+  .category:hover > .row_left,
+  .category:hover > .row_right {
+    opacity: 1;
+  }
+  .category .row_left {
+    left: 0;
+  }
+  .category .row_right {
+    right: 0;
   }
   
   .row_area {
     overflow-x: hidden;
   }
+
   
   .row {
     width: 800px;
@@ -25,8 +48,8 @@
     display: inline-block;
     width: 150px;
 
-    border-radius: 2.5rem;
-    margin-left: .5rem;
+    border-radius: 25px;
+    margin-left: 10px;
     background-color: azure;
     justify-content: center;
     align-items: center;

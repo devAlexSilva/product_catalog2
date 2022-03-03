@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { PrismicQuery } from '../cms/query'
 import styles from '../componentsStyles/RowProducts.module.css'
-import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material/ArrowBackIosNew';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 
 export default function RowProducts({ category }) {
 
@@ -16,6 +17,13 @@ export default function RowProducts({ category }) {
 
 
             <h1>{category}</h1>
+
+            <div className={styles.row_left}>
+               <ArrowBackIosIcon style={{fontSize:40}} />
+            </div>
+            <div className={styles.row_right}>
+                <ArrowForwardIosIcon style={{fontSize:40}} />
+            </div>
 
             <div className={styles.row_area}>
                 <div className={styles.row}>
