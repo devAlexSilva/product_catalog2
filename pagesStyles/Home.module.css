@@ -1,0 +1,5 @@
+.faded{
+    width: inherit;
+    height: inherit;
+    background: linear-gradient(to top, rgb(10, 9, 9), transparent 90%);
+}
