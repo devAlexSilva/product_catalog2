@@ -1,0 +1,92 @@
+.header {
+    background: rgba(17, 25, 40, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3%;
+    border-bottom: .1px solid #fff;
+    position: fixed; /* LEMBRAR DE MUDAR PRA ABSOLUTE PRA TIRAR SCREENSHOT*/
+    left: 0; top: 0; right: 0;
+    z-index: 1000;
+}
+
+.header .logo h1{
+    font-size: 28px;
+    color: #fff;
+    font-style: oblique;
+}
+
+.header .icons div{
+    color: #fff;
+    cursor: pointer;
+    font-size: 25px;
+    margin-left: 20px;   
+}
+
+.header .icons div:hover{
+    color:greenyellow;
+}
+
+
+.header .searchField,
+.header .searchFieldActive{
+    position: absolute;
+    top: 100%; right: -50%;
+    width: 500px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    transform: scaleY(0);
+    transform-origin: top;
+
+    -webkit-backdrop-filter: blur(1.6rem) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.75);
+    border-radius: 12px;
+    border: 2px solid #fff;
+}
+
+.header .searchFieldActive{    
+    transform: scaleY(.75);
+    width: 30%;
+    right: 15px;
+}
+.header .searchField input,
+.header .searchFieldActive input{
+    height: 100%;
+    width: 100%;
+    font-size: 16px;
+    color:#fff;
+    padding: 10px;
+    text-transform: none;
+
+    
+    background-color: rgba(17, 25, 40, 0.75);
+    border-radius: 12px;
+    
+}
+
+.header .searchFieldActive label{
+    cursor: pointer;
+    font-size: 25px;
+    margin-right: 5px;
+    color: #fff;
+}
+
+.header .searchFieldActive label:hover{
+    color: greenyellow;
+}
+
+
+
+
+/*---------------*/
+
+ 
+  /*              classe js         */
+ 
+  .header .searchFieldActive{    
+    transform: scaleY(.8);
+    width: 50%;
+    right: 20px;
+}
+  

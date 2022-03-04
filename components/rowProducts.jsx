@@ -7,8 +7,8 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 export default function RowProducts({ category }) {
 
     const [scrollMarginX, setScrollMarginX] = useState(0);
-
     const [products, setProducts] = useState([]);
+
     useEffect(async () => {
         const results = await PrismicQuery.getProductsByTag(category);
         setProducts(results);
@@ -16,25 +16,22 @@ export default function RowProducts({ category }) {
 
     function clickArrowLeft() {
         let leftX = scrollMarginX + 320;
-        if(leftX > 0) leftX = 0;
-        setScrollMarginX(leftX); 
+        if (leftX > 0) leftX = 0;
+        setScrollMarginX(leftX);
     }
 
     function clickArrowRight() {
         let rightX = scrollMarginX - 320;
         let rowProductsSize = products.length * 160; // widht itens + margin = 160
-        if((window.innerWidth - rowProductsSize) > rightX){
+        if ((window.innerWidth - rowProductsSize) > rightX) {
             rightX = (window.innerWidth - rowProductsSize) - 30;
         }
-        
         setScrollMarginX(rightX);
-     }
+    }
 
     return (
         <div className={styles.category}>
-
             <h1>{category}</h1>
-
             <div
                 className={styles.row_left}
                 onClick={clickArrowLeft}>
@@ -49,8 +46,8 @@ export default function RowProducts({ category }) {
             <div className={styles.row_area}>
                 <div
                     className={styles.row}
-                    style={{ 
-                        marginLeft: scrollMarginX, 
+                    style={{
+                        marginLeft: scrollMarginX,
                         width: products.length * 160 //tamanho dos itens(150px) + a margin(10px) se tiverem
                     }}
                 >

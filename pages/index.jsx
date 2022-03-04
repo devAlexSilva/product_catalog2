@@ -10,7 +10,7 @@ export default function Home({ responseQuery }) {
         height: '100vh',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundImage: 'url(/night-sky.jpg)'
+        backgroundImage: 'url(/jewelry-black.jpg)'
       }}>
 
       <div className={styles.faded} >
