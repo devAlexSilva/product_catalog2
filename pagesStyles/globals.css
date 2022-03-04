@@ -16,5 +16,11 @@ a, ul, li {
 
 * {
   box-sizing: border-box;
-  transition: .4s ease-in-out;
+  transition: .25s ease-in-out;
+}
+
+@media (max-width: 425px){
+  html{
+    font-size: 60%;
+  }
 }

@@ -1,5 +1,27 @@
+
 .faded{
     width: inherit;
     height: inherit;
     background: linear-gradient(to top, rgb(10, 9, 9), transparent 90%);
+}
+
+.content{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+
+.content .left{
+    max-width: 30vw;
+    position: absolute;
+    left: 0;
+    top: 30vh;
+}
+
+.content .right{
+    max-width: 30vw;
+    position: absolute;
+    right: 0;
+    top: 30vh;
 }

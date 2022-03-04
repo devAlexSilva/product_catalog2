@@ -1,5 +1,6 @@
 import styles from '../componentsStyles/Header.module.css'
 import SearchIcon from '@mui/icons-material/Search';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { useRef } from 'react';
 import Link from 'next/link'
 import { useState } from 'react';
@@ -12,7 +13,7 @@ export default function Header() {
     const toogleSearchField = () => {
         setSearchIsActive(!serachIsActive)
     }
-    
+
     return (
         <header className={styles.header}>
             <div className={styles.logo} >
@@ -20,12 +21,19 @@ export default function Header() {
                     <a><h1>xyz</h1></a>
                 </Link>
             </div>
-            < div className="icons" >
-                <div className='search' onClick={toogleSearchField}>
+            < div className={styles.icons} >
+                <div className={styles.search} onClick={toogleSearchField}>
                     <SearchIcon style={{
                         fontSize: 50,
                         color: 'red'
                     }} />
+                </div>
+                <div className={styles.whatsBtn}>
+                    <Link href={`${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}`} >
+                        <a target="_blank">
+                            <div className="fa-brands fa-whatsapp" />
+                        </a>
+                    </Link>
                 </div>
             </div>
 
@@ -35,7 +43,7 @@ export default function Header() {
                     <label
                         htmlFor="searchFieldRef"
                     >
-                        <SearchIcon style={{ fontSize: 25, color: 'blue' }} />
+                        <SearchIcon style={{ fontSize: 25 }} />
                     </label>
                     <input
                         ref={searchFieldRef}
