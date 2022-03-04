@@ -24,8 +24,8 @@
   }
 
   
-  .category:hover > .row_left,
-  .category:hover > .row_right {
+  .category:hover .row_left,
+  .category:hover .row_right {
     opacity: 1;
   }
   .category .row_left {
@@ -38,18 +38,13 @@
   .row_area {
     overflow-x: hidden;
   }
-
-  
-  .row {
-    width: 800px;
-  }
   
   .item {
     display: inline-block;
     width: 150px;
 
-    border-radius: 25px;
     margin-left: 10px;
+    border-radius: 25px;
     background-color: azure;
     justify-content: center;
     align-items: center;
@@ -58,7 +53,7 @@
   .item img {
     width: 100%;
     transform: scale(0.9);
-    transition: all ease 0.4s;
+    
     
   }
   .item img:hover {

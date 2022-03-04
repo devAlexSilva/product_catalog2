@@ -16,4 +16,5 @@ a, ul, li {
 
 * {
   box-sizing: border-box;
+  transition: .4s ease-in-out;
 }
