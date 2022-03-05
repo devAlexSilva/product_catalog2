@@ -9,9 +9,12 @@ export default function RowProducts({ category }) {
     const [scrollMarginX, setScrollMarginX] = useState(0);
     const [products, setProducts] = useState([]);
 
-    useEffect(async () => {
-        const results = await PrismicQuery.getProductsByTag(category);
-        setProducts(results);
+    useEffect(() => {
+        const getData = async () => {
+            const results = await PrismicQuery.getProductsByTag(category);
+            setProducts(results);
+        }
+        getData()
     }, [])
 
     function clickArrowLeft() {

@@ -24,7 +24,7 @@ export default function Home({ responseQuery }) {
       {
         responseQuery.map((item) => {
           return (
-            <RowProducts key={item} category={item} />
+            <RowProducts category={item} />
           )
         })
       }
