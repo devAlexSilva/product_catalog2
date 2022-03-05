@@ -1,12 +1,10 @@
 import styles from '../componentsStyles/Header.module.css'
 import SearchIcon from '@mui/icons-material/Search';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { useRef } from 'react';
 import Link from 'next/link'
 import { useState } from 'react';
 
 export default function Header() {
-
     const searchFieldRef = useRef(null);
     const [serachIsActive, setSearchIsActive] = useState(false)
 
@@ -36,7 +34,6 @@ export default function Header() {
                     </Link>
                 </div>
             </div>
-
             {
                 serachIsActive &&
                 <div className={styles.searchFieldActive} >
@@ -54,6 +51,5 @@ export default function Header() {
                 </div>
             }
         </header>
-
     )
 }

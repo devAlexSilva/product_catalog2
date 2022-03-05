@@ -16,19 +16,14 @@ function formatQueryResults(resultsToFormat, resultsFormated) {
     return resultsFormated;
 }
 
-
 export const PrismicQuery = {
-
     getTags: async () => {
         const results = await client.getTags();
         return results;
     },
-
     getProductsByTag: async(tagName) => {
         const { results } = await client.query(Prismic.Predicates.at('document.tags', [tagName]));
         const resultsFormated = []
-
         return formatQueryResults(results, resultsFormated);
-        
     }
 }
