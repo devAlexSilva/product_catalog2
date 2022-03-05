@@ -1,8 +1,7 @@
 import styles from '../componentsStyles/Header.module.css'
-import SearchIcon from '@mui/icons-material/Search';
-import { useRef } from 'react';
+import { useRef } from 'react'
 import Link from 'next/link'
-import { useState } from 'react';
+import { useState } from 'react'
 
 export default function Header() {
     const searchFieldRef = useRef(null);
@@ -21,10 +20,7 @@ export default function Header() {
             </div>
             < div className={styles.icons} >
                 <div className={styles.search} onClick={toogleSearchField}>
-                    <SearchIcon style={{
-                        fontSize: 50,
-                        color: 'red'
-                    }} />
+                    <div className="fa-solid fa-magnifying-glass" />
                 </div>
                 <div className={styles.whatsBtn}>
                     <Link href={`${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}`} >
@@ -40,7 +36,7 @@ export default function Header() {
                     <label
                         htmlFor="searchFieldRef"
                     >
-                        <SearchIcon style={{ fontSize: 25 }} />
+                        <div className="fa-solid fa-magnifying-glass" />
                     </label>
                     <input
                         ref={searchFieldRef}

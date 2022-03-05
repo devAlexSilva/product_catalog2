@@ -33,25 +33,9 @@ export default function Home({ responseQuery }) {
             )
           })
         }
-<<<<<<< HEAD
-
-      </div>
-    </>)
-}
-
-
-export async function getStaticProps() {
-  const responseQuery = await PrismicQuery.getTags();
-
-  return {
-    props: { responseQuery }
-
-  }
-=======
       </div>
     </>
   )
->>>>>>> e3bdf8f003f2dbdc5ea56d57700d881a40ed4a0e
 }
 
 export async function getStaticProps() {
