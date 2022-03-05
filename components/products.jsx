@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { PrismicQuery } from '../cms/query'
-import styles from '../componentsStyles/RowProducts.module.css'
+import styles from '../componentsStyles/Products.module.css'
 
-export default function RowProducts({ category }) {
+export default function Products({ category }) {
 
     const [scrollMarginX, setScrollMarginX] = useState(0);
     const [products, setProducts] = useState([]);

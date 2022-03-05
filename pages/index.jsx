@@ -1,5 +1,5 @@
 import { PrismicQuery } from '../cms/query'
-import RowProducts from '../components/rowProducts'
+import Products from '../components/products'
 import HeadMeta from '../components/headMeta'
 import Header from '../components/header'
 import styles from '../pagesStyles/Home.module.css'
@@ -29,7 +29,7 @@ export default function Home({ responseQuery }) {
         {
           responseQuery.map((item) => {
             return (
-              <RowProducts key={item} category={item} />
+              <Products key={item} category={item} />
             )
           })
         }
