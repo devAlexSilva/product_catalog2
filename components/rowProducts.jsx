@@ -15,7 +15,7 @@ export default function RowProducts({ category }) {
             setProducts(results);
         }
         getData()
-    }, [])
+    }, [category])
 
     function clickArrowLeft() {
         let leftX = scrollMarginX + 320;
