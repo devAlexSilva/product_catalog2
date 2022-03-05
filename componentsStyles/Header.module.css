@@ -1,0 +1,100 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
+
+.header {
+    background: rgba(17, 25, 40, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3%;
+    border-bottom: 1px solid #fff;
+    position: fixed; /* LEMBRAR DE MUDAR PRA ABSOLUTE PRA TIRAR SCREENSHOT*/
+    left: 0; top: 0; right: 0;
+    z-index: 1000;
+}
+
+.header .logo h1 {
+    font-size: 30px;
+    color: red;
+    font-style: oblique;
+}
+
+.header .icons {
+    display: flex;
+    align-items: center;
+}
+
+.header .icons div{
+    color: #fff;
+    cursor: pointer;
+    font-size: 25px;   
+}
+
+.header .icons .whatsBtn a > div{
+    font-size: 40px;
+    margin-left: 35px;    
+    color: greenyellow;
+   
+    animation: lightEfect 3s linear infinite;
+    text-shadow: 
+    0 0 50px #0072ff,
+    0 0 100px #0072ff,
+    0 0 150px #0072ff,
+    0 0 200px #0072ff;
+    animation-delay: 0.7s;     
+}
+
+.header .icons div:hover{
+    color:greenyellow;
+}
+
+.header .searchFieldActive{
+    position: absolute;
+    top: 100%;
+    transform-origin: top;
+    height: 40px;
+    width: 30%;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(17, 25, 40, 0.75);
+    border-radius: 12px;
+    border: 1px solid #fff;
+}
+
+.header .searchFieldActive input{
+    height: 100%;
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+    text-transform: none;
+    border: none;
+    background-color: rgba(17, 25, 40, 0.75);    
+}
+
+.header .searchFieldActive label{
+    cursor: pointer;
+    margin: 0 3px;
+    color:#fff;
+}
+.header .searchFieldActive label:hover {
+    color: yellowgreen;
+}
+
+  
+@media (max-width: 767px){
+
+    .header .searchFieldActive{
+        width: 60%;
+        right: 8px ;
+    }
+}
+
+        
+@keyframes lightEfect {
+    from {
+        filter: hue-rotate(0deg);
+    }
+    to {
+        filter: hue-rotate(360deg);
+    }
+}
