@@ -36,12 +36,12 @@ export default function RowProducts({ category }) {
             <div
                 className={styles.row_left}
                 onClick={clickArrowLeft}>
-                <i class="fa-solid fa-angle-left"></i>
+                <i className="fa-solid fa-angle-left" style={{fontSize:50}}></i>
             </div>
             <div
                 className={styles.row_right}
                 onClick={clickArrowRight}>
-                    <i className="fa-solid fa-angle-right"></i>
+                    <i className="fa-solid fa-angle-right" style={{fontSize:50}}></i>
             </div>
             <div className={styles.row_area}>
                 <div className={styles.row}
