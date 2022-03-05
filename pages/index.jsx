@@ -1,17 +1,20 @@
-import Layout from '../components/layout'
-import Query from '../cms/query'
+import { PrismicQuery } from '../cms/query'
+import RowProducts from '../components/rowProducts'
+import HeadMeta from '../components/headMeta'
+import Header from '../components/header'
+import styles from '../pagesStyles/Home.module.css'
 
-export default function Home() {
+export default function Home({ responseQuery }) {
 
   return (
     <>
-
-
+      <HeadMeta />
+      <Header />
       <div style={{
         height: '100vh',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundImage: 'url(/jewelry-black.jpg)', 
+        backgroundImage: 'url(/jewelry-black.jpg)',
       }}>
         <div className={styles.faded} />
 
@@ -30,6 +33,7 @@ export default function Home() {
             )
           })
         }
+<<<<<<< HEAD
 
       </div>
     </>)
@@ -42,5 +46,19 @@ export async function getStaticProps() {
   return {
     props: { responseQuery }
 
+  }
+=======
+      </div>
+    </>
+  )
+>>>>>>> e3bdf8f003f2dbdc5ea56d57700d881a40ed4a0e
+}
+
+export async function getStaticProps() {
+  const responseQuery = await PrismicQuery.getTags();
+
+  return {
+    props: { responseQuery },
+    revalidate: 60
   }
 }

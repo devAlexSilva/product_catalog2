@@ -9,10 +9,13 @@ export default function RowProducts({ category }) {
     const [scrollMarginX, setScrollMarginX] = useState(0);
     const [products, setProducts] = useState([]);
 
-    useEffect(async () => {
-        const results = await PrismicQuery.getProductsByTag(category);
-        setProducts(results);
-    }, [])
+    useEffect(() => {
+        const getData = async () => {
+            const results = await PrismicQuery.getProductsByTag(category);
+            setProducts(results);
+        }
+        getData()
+    }, [category])
 
     function clickArrowLeft() {
         let leftX = scrollMarginX + 320;
@@ -42,10 +45,8 @@ export default function RowProducts({ category }) {
                 onClick={clickArrowRight}>
                 <ArrowForwardIosIcon style={{ fontSize: 40 }} />
             </div>
-
             <div className={styles.row_area}>
-                <div
-                    className={styles.row}
+                <div className={styles.row}
                     style={{
                         marginLeft: scrollMarginX,
                         width: products.length * 160 //tamanho dos itens(150px) + a margin(10px) se tiverem
@@ -54,14 +55,11 @@ export default function RowProducts({ category }) {
                     {
                         products.map((item) => {
                             return (
-
-
                                 <ul key={item.productKey} className={styles.item}>
-                                    <li><img src={item.productImg} alt={item.productName} /></li>
                                     <li><h3>{item.productName}</h3></li>
+                                    <li><img loading='lazy' src={item.productImg} alt={item.productName} /></li>
                                     <li><span>{item.productPrice}</span></li>
                                 </ul>
-
                             )
                         })
                     }

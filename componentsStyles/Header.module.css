@@ -79,7 +79,10 @@
 .header .searchFieldActive label:hover {
     color: yellowgreen;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> e3bdf8f003f2dbdc5ea56d57700d881a40ed4a0e
   
 @media (max-width: 767px){
 
@@ -88,7 +91,10 @@
         right: 8px ;
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> e3bdf8f003f2dbdc5ea56d57700d881a40ed4a0e
         
 @keyframes lightEfect {
     from {
