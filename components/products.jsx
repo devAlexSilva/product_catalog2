@@ -21,17 +21,27 @@ export default function Products({ category }) {
         setScrollMarginX(leftX);
     }
 
-    function clickArrowRight() {
-        let rightX = scrollMarginX - 320;
-        let rowProductsSize = products.length * 160; // widht itens + margin = 160
-        if ((window.innerWidth - rowProductsSize) > rightX) {
-            rightX = (window.innerWidth - rowProductsSize) - 30;
+    const [productSize, setProductSize] = useState(100)
+    const [windowSizeCurrent, setWindowSizeCurrent] = useState(0);
+    function clickArrowRight() {//0 7% padding do elemento
+        
+        if(window.innerWidth > 768) { 
+            setWindowSizeCurrent(window.innerWidth - window.innerWidth*0.14) 
+            setProductSize(160)
+        }else {
+            setWindowSizeCurrent(window.innerWidth);
+            setProductSize(137)
+        }
+        let rightX = scrollMarginX - productSize * 2; //quantidade de itens scrollados
+        let rowProductsSize = products.length * productSize; // widht itens + margin = 160
+        if ((windowSizeCurrent - rowProductsSize) > rightX) {
+            rightX = (windowSizeCurrent - rowProductsSize);
         }
         setScrollMarginX(rightX);
     }
 
     return (
-        <div className={styles.category}>
+        <section className={styles.category}>
             <h1>{category}</h1>
             <div
                 className={styles.row_left}
@@ -43,7 +53,7 @@ export default function Products({ category }) {
                 onClick={clickArrowRight}>
                     <i className="fa-solid fa-angle-right" style={{fontSize:50}}></i>
             </div>
-            <div className={styles.row_area}>
+            <main className={styles.row_area}>
                 <div className={styles.row}
                     style={{
                         marginLeft: scrollMarginX,
@@ -53,7 +63,7 @@ export default function Products({ category }) {
                     {
                         products.map((item) => {
                             return (
-                                <ul key={item.productKey} className={styles.item}>
+                                <ul key={item.productKey} className={styles.card}>
                                     <li><h3>{item.productName}</h3></li>
                                     <li><img loading='lazy' src={item.productImg} alt={item.productName} /></li>
                                     <li><span>{item.productPrice}</span></li>
@@ -62,8 +72,8 @@ export default function Products({ category }) {
                         })
                     }
                 </div>
-            </div>
-        </div>
+            </main>
+        </section>
     )
 }
 

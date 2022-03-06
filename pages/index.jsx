@@ -23,16 +23,21 @@ export default function Home({ responseQuery }) {
             OS MELHORES ACESSÓRIOS 💎
             VOCÊ ENCONTRA AQUI!
           </h1>
-          <h1 className={styles.right}>confira nosso catálogo de produtos🥰 e faça seu pedido pelo whatsapp</h1>
+          <h1 className={styles.right}>
+            CONFIRA NOSSO CATÁLOGO DE PRODUTOS🥰
+            E FAÇA SEU PEDIDO PELO WHATSAPP
+          </h1>
         </div>
+        <div className={styles.section_products}>
 
-        {
-          responseQuery.map((item) => {
-            return (
-              <Products key={item} category={item} />
-            )
-          })
-        }
+          {
+            responseQuery.map((item) => {
+              return (
+                <Products key={item} category={item} />
+              )
+            })
+          }
+        </div>
       </div>
     </>
   )

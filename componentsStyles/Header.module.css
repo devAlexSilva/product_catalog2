@@ -6,15 +6,15 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 3%;
-    border-bottom: 1px solid #fff;
+    border-bottom: var(--border);
     position: fixed; /* LEMBRAR DE MUDAR PRA ABSOLUTE PRA TIRAR SCREENSHOT*/
     left: 0; top: 0; right: 0;
     z-index: 1000;
 }
 
 .header .logo h1 {
-    font-size: 30px;
-    color: red;
+    font-size: 3rem;
+    color: var(--main-color);
     font-style: oblique;
 }
 
@@ -26,46 +26,48 @@
 .header .icons div{
     color: #fff;
     cursor: pointer;
-    font-size: 25px;   
+    font-size: 2.5rem;   
 }
 
 .header .icons .whatsBtn a > div{
-    font-size: 40px;
-    margin-left: 35px;    
-    color: greenyellow;
-   
-    animation: lightEfect 3s linear infinite;
+    font-size: 4rem;
+    margin-left: 3.5rem;    
+    color: var(--main-color);
+
+    animation: lightEfect 5s linear infinite;
     text-shadow: 
     0 0 50px #0072ff,
     0 0 100px #0072ff,
     0 0 150px #0072ff,
-    0 0 200px #0072ff;
-    animation-delay: 0.7s;     
+    0 0 200px #0072ff;     
 }
 
 .header .icons div:hover{
-    color:greenyellow;
+    color:var(--main-color);
+}
+
+.header .icons .search:hover {
+    transform: rotate(90deg);
 }
 
 .header .searchFieldActive{
     position: absolute;
-    top: 100%;
-    transform-origin: top;
-    height: 40px;
+    top: 110%;
+    height: 4rem;
     width: 30%;
-    right: 20px;
+    right: 2rem;
     display: flex;
     align-items: center;
     background-color: rgba(17, 25, 40, 0.75);
-    border-radius: 12px;
-    border: 1px solid #fff;
+    border-radius: 1.2rem;
+    border: var(--border);
 }
 
 .header .searchFieldActive input{
     height: 100%;
     width: 100%;
-    font-size: 16px;
-    padding: 10px;
+    font-size: 1.6rem;
+    padding: 0 1rem;
     text-transform: none;
     border: none;
     background-color: rgba(17, 25, 40, 0.75);    
@@ -73,18 +75,19 @@
 
 .header .searchFieldActive label{
     cursor: pointer;
-    margin: 0 3px;
+    padding: 1rem;
     color:#fff;
+    font-size: 2.5rem;
 }
 .header .searchFieldActive label:hover {
-    color: yellowgreen;
+    color: var(--main-color);
 }
   
 @media (max-width: 767px){
 
     .header .searchFieldActive{
         width: 60%;
-        right: 8px ;
+        right: .8rem ;
     }
 }
         
