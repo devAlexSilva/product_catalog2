@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { PrismicQuery } from '../cms/query'
 import styles from '../componentsStyles/Products.module.css'
+import ProductSolo from './productSolo'
 
 export default function Products({ category }) {
 
@@ -42,6 +43,18 @@ export default function Products({ category }) {
         }
     }
 
+    const [isFullScreen, setIsFullScreen] = useState(false);
+    const [itemToMakeItbig, setItemToMakeItbig] = useState('');
+
+    const fullScreenItem = useCallback((keyItem) => {
+        setIsFullScreen(true);
+        setItemToMakeItbig(keyItem);
+    }, []);
+
+    const closeFullScreenItem = useCallback(() => {
+        setIsFullScreen(false);
+    }, [])
+
     return (
         <section className={styles.category}>
             <h1>{category}</h1>
@@ -65,7 +78,11 @@ export default function Products({ category }) {
                     {
                         products.map((item) => {
                             return (
-                                <ul key={item.productKey} className={styles.card}>
+                                <ul
+                                    key={item.productKey}
+                                    className={styles.card}
+                                    onClick={() => fullScreenItem(item.productKey)}
+                                >
                                     <li><h3>{item.productName}</h3></li>
                                     <li><img loading='lazy' src={item.productImg} alt={item.productName} /></li>
                                     <li><span>{item.productPrice}</span></li>
@@ -75,6 +92,13 @@ export default function Products({ category }) {
                     }
                 </div>
             </main>
+            {
+                isFullScreen &&
+                <div>
+                    <ProductSolo itemId={itemToMakeItbig} />
+                    <span style={{ color: 'green', fontSize: 40, cursor:'pointer' }} onClick={closeFullScreenItem}>close</span>
+                </div>
+            }
         </section>
     )
 }

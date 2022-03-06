@@ -25,5 +25,9 @@ export const PrismicQuery = {
         const { results } = await client.query(Prismic.Predicates.at('document.tags', [tagName]));
         const resultsFormated = []
         return formatQueryResults(results, resultsFormated);
+    },
+    getItemById: async(itemId) => {
+        const { results } = await client.query(Prismic.Predicates.at('document.id', itemId))
+        return results;
     }
 }

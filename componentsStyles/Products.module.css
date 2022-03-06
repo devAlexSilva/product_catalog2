@@ -20,7 +20,7 @@
   
 .category:hover .row_left,
 .category:hover .row_right {
-  opacity: .7;
+  opacity: .85;
 }
 
 .category .row_left {
@@ -59,10 +59,12 @@
 .card li img {
   width: 100%;
   height: 15rem;
+  border-radius: 10rem;
   transform: scale(0.9);  
 }
 
 .card img:hover {
+  border-radius: 0;
   transform: scale(1);
 }
 
