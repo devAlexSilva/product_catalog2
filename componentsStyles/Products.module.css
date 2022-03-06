@@ -64,7 +64,6 @@
 
 .card img:hover {
   transform: scale(1);
-  z-index: 99;
 }
 
 .card li h3 {

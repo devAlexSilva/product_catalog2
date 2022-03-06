@@ -22,22 +22,24 @@ export default function Products({ category }) {
     }
 
     const [productSize, setProductSize] = useState(100)
-    const [windowSizeCurrent, setWindowSizeCurrent] = useState(0);
-    function clickArrowRight() {//0 7% padding do elemento
-        
-        if(window.innerWidth > 768) { 
-            setWindowSizeCurrent(window.innerWidth - window.innerWidth*0.14) 
+    const [windowSizeCurrent, setWindowSizeCurrent] = useState(400);
+
+    function clickArrowRight() {//0 7% padding do elemento    
+        if (window.innerWidth > 768) {
+            setWindowSizeCurrent(window.innerWidth - window.innerWidth * 0.15)
             setProductSize(160)
-        }else {
+        } else {
             setWindowSizeCurrent(window.innerWidth);
             setProductSize(137)
         }
         let rightX = scrollMarginX - productSize * 2; //quantidade de itens scrollados
         let rowProductsSize = products.length * productSize; // widht itens + margin = 160
-        if ((windowSizeCurrent - rowProductsSize) > rightX) {
-            rightX = (windowSizeCurrent - rowProductsSize);
+        if (rowProductsSize > windowSizeCurrent) {
+            if ((windowSizeCurrent - rowProductsSize) > rightX) {
+                rightX = (windowSizeCurrent - rowProductsSize);
+            }
+            setScrollMarginX(rightX);
         }
-        setScrollMarginX(rightX);
     }
 
     return (
@@ -46,12 +48,12 @@ export default function Products({ category }) {
             <div
                 className={styles.row_left}
                 onClick={clickArrowLeft}>
-                <i className="fa-solid fa-angle-left" style={{fontSize:50}}></i>
+                <i className="fa-solid fa-angle-left" style={{ fontSize: 50 }}></i>
             </div>
             <div
                 className={styles.row_right}
                 onClick={clickArrowRight}>
-                    <i className="fa-solid fa-angle-right" style={{fontSize:50}}></i>
+                <i className="fa-solid fa-angle-right" style={{ fontSize: 50 }}></i>
             </div>
             <main className={styles.row_area}>
                 <div className={styles.row}
