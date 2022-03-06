@@ -94,9 +94,15 @@ export default function Products({ category }) {
             </main>
             {
                 isFullScreen &&
-                <div>
-                    <ProductSolo itemId={itemToMakeItbig} />
-                    <span style={{ color: 'green', fontSize: 40, cursor:'pointer' }} onClick={closeFullScreenItem}>close</span>
+                <div className={styles.img_container}>
+                    <div className={styles.img_solo}>
+                        <div className={styles.close}>
+                            <i className='fas fa-times'
+                                onClick={closeFullScreenItem}>
+                            </i>
+                        </div>
+                        <ProductSolo itemId={itemToMakeItbig} />
+                    </div>
                 </div>
             }
         </section>
