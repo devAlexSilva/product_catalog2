@@ -29,5 +29,10 @@ export const PrismicQuery = {
     getItemById: async(itemId) => {
         const { results } = await client.query(Prismic.Predicates.at('document.id', itemId))
         return results;
+    },
+    getItemByName: async(itemName) => {
+        const { results } = await client.query(Prismic.Predicates.fulltext('my.produtos.name', itemName));
+        const resultsFormated = [];
+        return formatQueryResults(results, resultsFormated);
     }
 }

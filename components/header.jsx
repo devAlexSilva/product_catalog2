@@ -1,15 +1,24 @@
 import styles from '../componentsStyles/Header.module.css'
-import { useRef } from 'react'
+import { useCallback, useRef } from 'react'
 import Link from 'next/link'
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 
 export default function Header() {
+    
+    const router = useRouter();
     const searchFieldRef = useRef(null);
-    const [serachIsActive, setSearchIsActive] = useState(false)
+    const [serachIsActive, setSearchIsActive] = useState(false);
 
     const toogleSearchField = () => {
         setSearchIsActive(!serachIsActive)
     }
+
+    const searchProduct = useCallback(()=>{
+        let name = searchFieldRef.current.value;
+        router.push(`/search/${name}`)
+        
+    },[]);
 
     return (
         <header className={styles.header}>
@@ -35,6 +44,7 @@ export default function Header() {
                 <div className={styles.searchFieldActive} >
                     <label
                         htmlFor="searchFieldRef"
+                        onClick={searchProduct}
                     >
                         <div className="fa-solid fa-magnifying-glass" />
                     </label>

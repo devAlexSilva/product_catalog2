@@ -4,10 +4,8 @@ import styles from '../componentsStyles/Products.module.css'
 import ProductSolo from './productSolo'
 
 export default function Products({ category }) {
-
-    const [scrollMarginX, setScrollMarginX] = useState(0);
+    
     const [products, setProducts] = useState([]);
-
     useEffect(() => {
         const getData = async () => {
             const results = await PrismicQuery.getProductsByTag(category);
@@ -15,15 +13,16 @@ export default function Products({ category }) {
         }
         getData()
     }, [category])
+        
+    const [scrollMarginX, setScrollMarginX] = useState(0);
+    const [productSize, setProductSize] = useState(100)
+    const [windowSizeCurrent, setWindowSizeCurrent] = useState(400);
 
     function clickArrowLeft() {
         let leftX = scrollMarginX + 320;
         if (leftX > 0) leftX = 0;
         setScrollMarginX(leftX);
     }
-
-    const [productSize, setProductSize] = useState(100)
-    const [windowSizeCurrent, setWindowSizeCurrent] = useState(400);
 
     function clickArrowRight() {//0 7% padding do elemento    
         if (window.innerWidth > 768) {
@@ -42,13 +41,13 @@ export default function Products({ category }) {
             setScrollMarginX(rightX);
         }
     }
-
+ 
     const [isFullScreen, setIsFullScreen] = useState(false);
     const [itemToMakeItbig, setItemToMakeItbig] = useState('');
 
-    const fullScreenItem = useCallback((keyItem) => {
+    const fullScreenItem = useCallback((itemName) => {
         setIsFullScreen(true);
-        setItemToMakeItbig(keyItem);
+        setItemToMakeItbig(itemName);
     }, []);
 
     const closeFullScreenItem = useCallback(() => {
@@ -68,6 +67,7 @@ export default function Products({ category }) {
                 onClick={clickArrowRight}>
                 <i className="fa-solid fa-angle-right" style={{ fontSize: 50 }}></i>
             </div>
+           
             <main className={styles.row_area}>
                 <div className={styles.row}
                     style={{
@@ -81,7 +81,7 @@ export default function Products({ category }) {
                                 <ul
                                     key={item.productKey}
                                     className={styles.card}
-                                    onClick={() => fullScreenItem(item.productKey)}
+                                    onClick={() => fullScreenItem(item.productName)}
                                 >
                                     <li><h3>{item.productName}</h3></li>
                                     <li><img loading='lazy' src={item.productImg} alt={item.productName} /></li>
@@ -101,7 +101,7 @@ export default function Products({ category }) {
                                 onClick={closeFullScreenItem}>
                             </i>
                         </div>
-                        <ProductSolo itemId={itemToMakeItbig} />
+                        <ProductSolo itemName={itemToMakeItbig} />
                     </div>
                 </div>
             }

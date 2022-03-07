@@ -1,22 +1,30 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import { PrismicQuery } from "../cms/query"
 import styles from '../componentsStyles/ProductSolo.module.css'
 
-export default function ProductSolo({ itemId }) {
+export default function ProductSolo({ itemName }) {
 
     const [product, setProduct] = useState({});
     useEffect(() => {
         const getData = async () => {
-            const results = await PrismicQuery.getItemById(itemId);
-            setProduct(results[0].data);
+            const results = await PrismicQuery.getItemByName(itemName);
+            setProduct(results[0]);
         }
         getData();
     }, [])
 
     return (
-            <img className={styles.img_solo}
-                src={product.image?.url}
-                alt={product.name}
-            />
+        <>
+            { product &&
+                <img className={styles.img_solo}
+                    src={product?.productImg}
+                    alt={product?.productName}
+                />
+            }
+            {
+                !product && <p style={{fontSize:50, textAlign: "center"}}>nenhum produto encontrado</p>
+                
+            }
+        </>
     )
 }

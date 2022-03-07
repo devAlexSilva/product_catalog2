@@ -16,17 +16,12 @@
 }
 
 .content .left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     max-width: 30vw;
     position: absolute;
-    left: 0;
-    top: 30vh;
-}
-
-.content .right{
-    max-width: 30vw;
-    position: absolute;
-    right: 0;
-    top: 30vh;
+    top: 15vh; left: 35vw;
 }
 
 @media (max-width: 768px) {

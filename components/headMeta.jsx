@@ -1,6 +1,6 @@
 import Head from "next/head"
 
-export default function HeadMeta({ children }) {
+export default function HeadMeta() {
   return (
     <>
       <Head>
@@ -8,7 +8,6 @@ export default function HeadMeta({ children }) {
         <meta name="description" content="catalogo para venda de produtos" />
         <link rel="icon" href="/diamond.ico" />
       </Head>
-      {children}
     </>
   )
 }

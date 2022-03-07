@@ -102,14 +102,19 @@
 
 .img_container .close > i {
   position: absolute;
-  top: 0; right: .2rem;
+  top: 0; right: 1rem;
   cursor: pointer;
   color: var(--main-color);
-  font-size: 5rem;
+  font-size: 4rem;
 }
 
 @media (max-width: 768px) {
-  
+ 
+.category .row_left,
+.category .row_right {
+  opacity: .7;
+}
+
 .category .row_left {
   left: 0;
 }
@@ -117,4 +122,5 @@
 .category .row_right {
   right: 0;
 }
+
 }
